@@ -1,0 +1,56 @@
+<div class="max-w-md mx-auto mt-10 bg-white rounded-xl shadow-md p-6">
+  <h2 class="text-2xl font-bold mb-6 text-center">Add Passenger</h2>
+  <form [formGroup]="passengerForm" (ngSubmit)="submitPassenger()" class="space-y-4">
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter name"
+        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Contact Details</label>
+      <input
+        type="text"
+        formControlName="contactDetails"
+        placeholder="Enter contact number"
+        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Code</label>
+      <input
+        type="number"
+        formControlName="code"
+        placeholder="Enter code"
+        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+      <select
+        formControlName="gender"
+        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="" disabled>Select gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="loading || !passengerForm.valid"
+      class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:opacity-50"
+    >
+      {{ loading ? 'Submitting...' : 'Submit Passenger' }}
+    </button>
+  </form>
+</div>

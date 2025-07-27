@@ -1,0 +1,87 @@
+<section class="min-h-screen bg-gray-100 p-6">
+
+  
+  <div class="container mx-auto">
+    <a routerLink="/add-flight"
+         class=""><button
+          class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition duration-300"
+        >
+          Add Flight
+        </button></a
+      >
+
+    <!-- Title -->
+    <!-- <h1 class="text-3xl font-bold text-indigo-700 mb-8">Admin Dashboard</h1> -->
+
+    <!-- Bookings Section -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 mb-12">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Bookings</h2>
+      
+      <div class="overflow-auto">
+        <table class="min-w-full text-sm text-left border">
+          <thead class="bg-indigo-600 text-white">
+            <tr>
+              <th class="py-2 px-4">Booking ID</th>
+              <th class="py-2 px-4">Flight ID</th>
+              <th class="py-2 px-4">Passenger ID</th>
+              <th class="py-2 px-4">Booking Date</th>
+              <th class="py-2 px-4">Status</th>
+              <th class="py-2 px-4">Payment</th>
+              <th class="py-2 px-4">Seat No</th>
+              <th class="py-2 px-4">Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let b of bookings" class="border-b hover:bg-gray-50">
+              <td class="py-2 px-4">{{ b.bookingID }}</td>
+              <td class="py-2 px-4">{{ b.flightID }}</td>
+              <td class="py-2 px-4">{{ b.passengerID }}</td>
+              <td class="py-2 px-4">{{ b.bookingDate | date:'short' }}</td>
+              <td class="py-2 px-4">{{ b.status }}</td>
+              <td class="py-2 px-4">{{ b.paymentStatus }}</td>
+              <td class="py-2 px-4">{{ b.seatNumber }}</td>
+              <td *ngIf="b.status!=='Cancelled'" class="py-2 px-4"><button  (click)="cancelRequest(b.bookingID)" class="rounded border-2 border-green-100 p-1">Cancel</button></td>
+              <td *ngIf="b.status==='Cancelled' " class="py-2 px-4"><button  class="">Done</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Flights Section -->
+    <div class="bg-white shadow-lg rounded-2xl p-6">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Flights</h2>
+      <div class="overflow-auto">
+        <table class="min-w-full text-sm text-left border">
+          <thead class="bg-indigo-600 text-white">
+            <tr>
+              <th class="py-2 px-4">Flight ID</th>
+              <th class="py-2 px-4">Flight No.</th>
+              <th class="py-2 px-4">Origin</th>
+              <th class="py-2 px-4">Destination</th>
+              <th class="py-2 px-4">Departure</th>
+              <th class="py-2 px-4">Arrival</th>
+              <th class="py-2 px-4">Status</th>
+              <th class="py-2 px-4">Available Seats</th>
+              <!-- <th class="py-2 px-4">Bookings</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of flights" class="border-b hover:bg-gray-50">
+              <td class="py-2 px-4">{{ f.flightID }}</td>
+              <td class="py-2 px-4">{{ f.flightNumber }}</td>
+              <td class="py-2 px-4">{{ f.origin }}</td>
+              <td class="py-2 px-4">{{ f.destination }}</td>
+              <td class="py-2 px-4">{{ f.departureTime | date:'short' }}</td>
+              <td class="py-2 px-4">{{ f.arrivalTime | date:'short' }}</td>
+              <td class="py-2 px-4">{{ f.status }}</td>
+              <td class="py-2 px-4">{{ f.totalSeats }}</td>
+              <!-- <td class="py-2 px-4">{{ f.bookings?.length || 0 }}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>

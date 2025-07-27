@@ -1,0 +1,65 @@
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-600 to-indigo-700 px-4">
+  <div class="bg-white shadow-2xl rounded-2xl p-8 max-w-xl w-full">
+    <div class="text-center mb-6">
+      <img src="https://img.icons8.com/ios-filled/50/airport.png" class="mx-auto w-10 h-10" alt="Flight Icon" />
+      <h2 class="text-2xl font-bold text-indigo-700 mt-2">Add Flight</h2>
+      <p class="text-sm text-gray-600">Enter flight details below</p>
+    </div>
+
+    <form [formGroup]="flightForm" (ngSubmit)="submitForm()">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-medium mb-1">Flight Number</label>
+        <input formControlName="flightNumber" type="text" placeholder="AI203"
+          class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-gray-700 text-sm font-medium mb-1">Departure Time</label>
+          <input formControlName="departureTime" type="datetime-local"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-medium mb-1">Arrival Time</label>
+          <input formControlName="arrivalTime" type="datetime-local"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-gray-700 text-sm font-medium mb-1">Origin</label>
+          <input formControlName="origin" type="text" placeholder="Delhi"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-medium mb-1">Destination</label>
+          <input formControlName="destination" type="text" placeholder="Mumbai"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-medium mb-1">Status</label>
+        <select formControlName="status"
+          class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <option value="Scheduled">Scheduled</option>
+          <option value="Delayed">Delayed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-medium mb-1">Total Seats</label>
+        <input formControlName="totalSeats" type="number" placeholder="300"
+          class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      </div>
+
+      <button type="submit"
+        class="w-full bg-indigo-700 hover:bg-indigo-600 text-white font-semibold py-3 rounded-lg transition duration-300"
+        [disabled]="flightForm.invalid || loading">
+        {{ loading ? 'Submitting...' : 'Add Flight' }}
+      </button>
+    </form>
+  </div>
+</section>
