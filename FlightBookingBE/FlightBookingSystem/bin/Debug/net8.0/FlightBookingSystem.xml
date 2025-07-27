@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlightBookingSystem</name>
+    </assembly>
+    <members>
+        <member name="M:FlightBookingSystem.Controllers.BookingController.GetAllBookings">
+            <summary>
+            Fetches all bookings.
+            Authorized for: Admin
+            </summary>
+            <returns>List of all bookings.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.BookingController.GetBookingById(System.Int32)">
+            <summary>
+            Fetches a booking by ID.
+            Authorized for: Admin, Passenger
+            </summary>
+            <param name="id">Booking ID.</param>
+            <returns>Booking details.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.BookingController.AddBooking(FlightBookingSystem.Model.Booking.BookingDTO)">
+            <summary>
+            Adds a new booking.
+            Authorized for: Passenger
+            </summary>
+            <param name="booking">Booking details.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.BookingController.ConfirmBooking(System.Int32)">
+            <summary>
+            Confirms a booking by ID.
+            Authorized for: Admin
+            </summary>
+            <param name="bookingId">Booking ID.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.CancellationController.CancelBooking(System.Int32)">
+            <summary>
+            Cancels a booking by ID.
+            Authorized for: Passenger
+            </summary>
+            <param name="bookingId">Booking ID.</param>
+            <returns>Cancellation details.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.CancellationController.ApproveCancellation(System.Int32)">
+            <summary>
+            Approves a cancellation by ID.
+            Authorized for: Admin
+            </summary>
+            <param name="cancellationId">Cancellation ID.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.FlightController.GetAllFlights">
+            <summary>
+            Fetches all flights.
+            Authorized for: Admin, Passenger
+            </summary>
+            <returns>List of all flights.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.FlightController.GetFlightById(System.Int32)">
+            <summary>
+            Fetches a flight by ID.
+            Authorized for: Admin, Passenger
+            </summary>
+            <param name="id">Flight ID.</param>
+            <returns>Flight details.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.FlightController.AddFlight(FlightBookingSystem.Model.Flight.FlightDTO)">
+            <summary>
+            Adds a new flight.
+            Authorized for: Admin
+            </summary>
+            <param name="flight">Flight details.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.FlightController.UpdateFlight(System.Int32,FlightBookingSystem.Model.Flight.UpdateFlightDTO)">
+            <summary>
+            Updates a flight by ID.
+            Authorized for: Admin
+            </summary>
+            <param name="id">Flight ID.</param>
+            <param name="flight">Updated flight details.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.FlightController.DeleteFlight(System.Int32)">
+            <summary>
+            Deletes a flight by ID.
+            Authorized for: Admin
+            </summary>
+            <param name="id">Flight ID.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.PassengerController.GetAllPassengers">
+            <summary>
+            Fetches all passengers.
+            Authorized for: Admin
+            </summary>
+            <returns>List of all passengers.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.PassengerController.GetPassengerById(System.Int32)">
+            <summary>
+            Fetches a passenger by ID.
+            Authorized for: Admin, Passenger
+            </summary>
+            <param name="id">Passenger ID.</param>
+            <returns>Passenger details.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.PassengerController.AddPassenger(FlightBookingSystem.Model.Passenger.PassengerDTO)">
+            <summary>
+            Adds a new passenger.
+            Authorized for: Passenger
+            </summary>
+            <param name="passenger">Passenger details.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.PassengerController.UpdatePassenger(System.Int32,FlightBookingSystem.Model.Passenger.UpdatePassengerDTO)">
+            <summary>
+            Updates a passenger by ID.
+            Authorized for: Passenger
+            </summary>
+            <param name="id">Passenger ID.</param>
+            <param name="passenger">Updated passenger details.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.PassengerController.DeletePassenger(System.Int32)">
+            <summary>
+            Deletes a passenger by ID.
+            Authorized for: Admin
+            </summary>
+            <param name="id">Passenger ID.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.GetAllUsers">
+            <summary>
+            Fetches all users.
+            Authorized for: Admin, Passenger
+            </summary>
+            <returns>List of all users.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.GetUserByIdAsync(System.Int32)">
+            <summary>
+            Fetches a user by ID.
+            Authorized for: Admin, Passenger
+            </summary>
+            <param name="id">User ID.</param>
+            <returns>User details.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.CreateUser(FlightBookingSystem.Model.User.UserDTO)">
+            <summary>
+            Creates a new user.
+            </summary>
+            <param name="user">User details.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.UpdateUser(System.Int32,FlightBookingSystem.Model.User.UpdateDTO)">
+            <summary>
+            Updates a user by ID.
+            Authorized for: Admin, Passenger
+            </summary>
+            <param name="id">User ID.</param>
+            <param name="user">Updated user details.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.DeleteUser(System.Int32)">
+            <summary>
+            Deletes a user by ID.
+            Authorized for: Admin
+            </summary>
+            <param name="id">User ID.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.LogIn(FlightBookingSystem.Model.User.LogInDTO)">
+            <summary>
+            Logs in a user.
+            </summary>
+            <param name="userLogin">Login details.</param>
+            <returns>JWT token.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.ForgotPassword(FlightBookingSystem.Model.User.ForgotPasswordModel)">
+            <summary>
+            Initiates the password reset process for a user.
+            </summary>
+            <param name="request">Forgot password request details.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="M:FlightBookingSystem.Controllers.UsersController.ResetPassword(FlightBookingSystem.Model.User.ResetPasswordModel)">
+            <summary>
+            Resets the user's password.
+            </summary>
+            <param name="model">Reset password details.</param>
+            <returns>Confirmation message.</returns>
+        </member>
+        <member name="T:FlightBookingSystem.Migrations.initial">
+            <inheritdoc />
+        </member>
+        <member name="M:FlightBookingSystem.Migrations.initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FlightBookingSystem.Migrations.initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FlightBookingSystem.Migrations.initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
